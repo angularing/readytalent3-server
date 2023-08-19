@@ -35,6 +35,7 @@ public class Readytalent3Application {
 				log.info(job.toString());
 			}
 			log.info("");
+
 		};
 	}
 }
