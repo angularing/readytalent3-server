@@ -24,6 +24,7 @@ public class Readytalent3Application {
 		return (args) -> {
 			repository.deleteAll();
 			repository.save(new Job("Software Developer","TechCo","Full Time"));
+			repository.save(new Job("Software Developer","BKYW","Full Time"));
 			repository.save(new Job("Graphic Designer","Design Inc","Part Time"));
 			repository.save(new Job("Project Manager","Projects Ltd","Contract"));
 
