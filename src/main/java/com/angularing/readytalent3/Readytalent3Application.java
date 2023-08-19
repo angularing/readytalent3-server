@@ -22,6 +22,7 @@ public class Readytalent3Application {
 	@Bean
 	public CommandLineRunner demo(JobRepository repository){
 		return (args) -> {
+			repository.deleteAll();
 			repository.save(new Job("Software Developer","TechCo","Full Time"));
 			repository.save(new Job("Graphic Designer","Design Inc","Part Time"));
 			repository.save(new Job("Project Manager","Projects Ltd","Contract"));
