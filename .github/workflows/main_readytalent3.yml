@@ -23,10 +23,6 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install
-        env: # Or as an environment variable
-          DB_URL: ${{ secrets.DB_URL }}
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -53,5 +49,5 @@ jobs:
         with:
           app-name: 'readytalent3'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_69710696371748C497D7BE84A3A1F6F5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1EE1C0AAFA694957B828FB3743A0B4E1 }}
           package: '*.jar'
