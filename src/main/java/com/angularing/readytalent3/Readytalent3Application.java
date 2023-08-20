@@ -2,6 +2,7 @@ package com.angularing.readytalent3;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.sql.DataSource;
 
 @SpringBootApplication
 public class Readytalent3Application {
@@ -19,9 +22,14 @@ public class Readytalent3Application {
 		SpringApplication.run(Readytalent3Application.class, args);
 	}
 
+	@Autowired
+	private DataSource dataSource;
+
 	@Bean
 	public CommandLineRunner demo(JobRepository repository){
 		return (args) -> {
+			log.info(dataSource.getConnection().toString());
+
 			repository.deleteAll();
 			repository.save(new Job("Software Developer","TechCo","Full Time"));
 			repository.save(new Job("Software Developer","BKYW","Full Time"));
