@@ -2,11 +2,6 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
 name: Build and deploy JAR app to Azure Web App - readytalent3
-env:
-  DB_URL: ${{ secrets.DB_URL }}
-  DB_USER: ${{ secrets.DB_USER }}
-  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-
 on:
   push:
     branches:
