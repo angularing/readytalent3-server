@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
 @Entity
 public class Job {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,15 +14,21 @@ public class Job {
     private String title;
     private String company;
     private String type;
+    private Integer salary;
+    private LocalDate closingDate;
+    private Integer vacancies;
 
     protected Job(){
 
     }
 
-    Job(String title, String company, String type){
+    Job(String title, String company, String type, Integer salary, LocalDate closingDate, Integer vacancies){
         this.title = title;
         this.company = company;
         this.type = type;
+        this.salary = salary;
+        this.closingDate = closingDate;
+        this.vacancies = vacancies;
     }
 
     public String getTitle() {
@@ -47,8 +55,33 @@ public class Job {
         this.type = type;
     }
 
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
+    }
+
+    public LocalDate getClosingDate() {
+        return closingDate;
+    }
+
+    public void setClosingDate(LocalDate closingDate) {
+        this.closingDate = closingDate;
+    }
+
+    public Integer getVacancies() {
+        return vacancies;
+    }
+
+    public void setVacancies(Integer vacancies) {
+        this.vacancies = vacancies;
+    }
+
     @Override
     public String toString(){
-        return String.format("Job[id=%d, title='%s', company='%s', type='%s']", id, title, company, type);
+        return String.format("Job[id=%d, title='%s', company='%s', type='%s', salary='%d', closingDate='%s', vacancies='%d',]",
+                id, title, company, type, salary, closingDate.toString(), vacancies);
     }
 }

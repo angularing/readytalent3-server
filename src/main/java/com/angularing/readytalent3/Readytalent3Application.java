@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cglib.core.Local;
 import org.springframework.context.annotation.Bean;
 
 import javax.sql.DataSource;
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class Readytalent3Application {
@@ -27,12 +29,13 @@ public class Readytalent3Application {
 		return (args) -> {
 			log.info(dataSource.getConnection().toString());
 
+
 			repository.deleteAll();
-			repository.save(new Job("Software Developer","TechCo","Full Time"));
-			repository.save(new Job("Software Developer","BKYW","Full Time"));
-			repository.save(new Job("Software Developer","SIT","Contract"));
-			repository.save(new Job("Graphic Designer","Design Inc","Part Time"));
-			repository.save(new Job("Project Manager","Projects Ltd","Contract"));
+			repository.save(new Job("Software Developer","TechCo","Full Time", 4000, LocalDate.now(), 2));
+			repository.save(new Job("Software Developer","BKYW","Full Time", 6500, LocalDate.now(), 1));
+			repository.save(new Job("Software Developer","SIT","Contract", 20, LocalDate.now(), 3));
+			repository.save(new Job("Graphic Designer","Design Inc","Part Time", 15, LocalDate.now(), 1));
+			repository.save(new Job("Project Manager", "Projects Ltd", "Contract", 30, LocalDate.now(), 1));
 
 			log.info("Jobs:");
 			log.info("-------------------------------");
